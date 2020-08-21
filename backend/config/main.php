@@ -12,6 +12,9 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'name'=>'Счета админка',
+    'language' => 'ru',
+    'defaultRoute'=> 'account',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -42,6 +45,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'account'=> 'account/index',
+                'account/<id:\d+>/transact'=> 'account/transact',
+                'account/<id:\d+>/update'=> 'account/update',
+                'account/<id:\d+>/view'=> 'account/view',
+                'account/<id:\d+>/delete'=> 'account/delete',
             ],
         ],
     ],

@@ -1,6 +1,27 @@
 <?php
 return [
     [
+        'id'=> 1,
+        'username'=>'user1',
+        'auth_key'=> Yii::$app->security->generateRandomString(),
+        'password_hash'=> Yii::$app->security->generatePasswordHash('123'),
+        'email'=>'user1@mail.com',
+        'status'=>10,
+        'created_at'=>time(),
+        'updated_at'=>time(),
+    ],
+    [
+        'id'=> 2,
+        'username'=>'user2',
+        'auth_key'=> Yii::$app->security->generateRandomString(),
+        'password_hash'=> Yii::$app->security->generatePasswordHash('123'),
+        'email'=>'user2@mail.com',
+        'status'=>10,
+        'created_at'=>time(),
+        'updated_at'=>time(),
+    ],
+    [
+        'id'=> 3,
         'username' => 'erau',
         'auth_key' => 'tUu1qHcde0diwUol3xeI-18MuHkkprQI',
         // password_0

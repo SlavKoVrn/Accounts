@@ -2,6 +2,8 @@
 
 namespace common\models;
 
+use Yii;
+
 /**
  * This is the ActiveQuery class for [[Account]].
  *
@@ -11,7 +13,17 @@ class AccountQuery extends \yii\db\ActiveQuery
 {
     public function active()
     {
-        return $this->andWhere('[[status]]=1');
+        return $this->andWhere(['account_status'=>1]);
+    }
+
+    public function notDeleted()
+    {
+        return $this->andWhere(['deleted_at'=>0]);
+    }
+
+    public function owner()
+    {
+        return $this->andWhere(['account_user_id'=>Yii::$app->user->id]);
     }
 
     /**

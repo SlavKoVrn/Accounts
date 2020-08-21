@@ -9,10 +9,12 @@ namespace common\models;
  */
 class TransactionQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
+    public function account($account_id)
     {
-        return $this->andWhere('[[status]]=1');
-    }*/
+        return $this
+            ->andWhere(['debet_account_id'=>$account_id])
+            ->orWhere(['credit_account_id'=>$account_id]);
+    }
 
     /**
      * {@inheritdoc}

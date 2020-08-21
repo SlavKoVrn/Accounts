@@ -17,7 +17,8 @@
         "php": ">=5.6.0",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
-        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0"
+        "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
+        "kartik-v/yii2-widget-select2": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
@@ -28,7 +29,15 @@
         "codeception/module-yii2": "^1.0",
         "codeception/module-filesystem": "^1.0",
         "codeception/verify": "~0.5.0 || ~1.1.0",
-        "symfony/browser-kit": ">=2.7 <=4.2.4"
+        "symfony/browser-kit": ">=2.7 <=4.2.4",
+
+        "kartik-v/yii2-grid": "*",
+        "kartik-v/yii2-editable": "*",
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-helpers": "*",
+        "kartik-v/yii2-date-range": "dev-master",
+        "codeception/module-rest": "^1.2",
+        "codeception/module-phpbrowser": "^1.0"
     },
     "config": {
         "process-timeout": 1800,

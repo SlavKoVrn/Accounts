@@ -9,6 +9,8 @@ return [
             'showScriptName' => true,
         ],
         'request' => [
+            'enableCsrfCookie' => false,
+            'enableCsrfValidation' => false,
             'cookieValidationKey' => 'test',
         ],
     ],
