@@ -2,7 +2,6 @@
 
 namespace api\models;
 
-use common\models\Token;
 use common\models\User;
 use yii\base\Model;
 
