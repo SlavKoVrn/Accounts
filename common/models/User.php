@@ -17,6 +17,8 @@ use yii\web\IdentityInterface;
  * @property string $verification_token
  * @property string $email
  * @property string $auth_key
+ * @property string  $rest_token
+ * @property integer $rest_token_expired_at
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at

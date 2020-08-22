@@ -37,7 +37,9 @@
         "kartik-v/yii2-helpers": "*",
         "kartik-v/yii2-date-range": "dev-master",
         "codeception/module-rest": "^1.2",
-        "codeception/module-phpbrowser": "^1.0"
+        "codeception/module-phpbrowser": "^1.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "flow/jsonpath": "^0.5.0"
     },
     "config": {
         "process-timeout": 1800,
