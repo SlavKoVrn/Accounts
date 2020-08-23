@@ -57,6 +57,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_INACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+            ['description','string'],
         ];
     }
 
@@ -73,7 +74,10 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+        return static::find()
+            ->andWhere(['rest_token' => $token])
+            ->andWhere(['>', 'rest_token_expired_at', date('Y-m-d H:i:s',time())])
+            ->one();
     }
 
     /**
@@ -220,4 +224,14 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return new UserQuery(get_called_class());
     }
+
+    public function fields(){
+        return [
+            'id',
+            'username',
+            'email',
+            'description'
+        ];
+    }
+
 }
