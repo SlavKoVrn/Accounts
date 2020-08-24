@@ -23,7 +23,9 @@ class UserController extends ActiveController
     public function prepareDataProvider()
     {
         $searchModel = new UserSearch();
-        return $searchModel->search(Yii::$app->request->queryParams);
+        return [
+            'results'=>$searchModel->search(Yii::$app->request->queryParams)
+        ];
     }
 
 }
