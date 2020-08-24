@@ -51,6 +51,7 @@ return [
                 'auth' => 'site/login',
                 'GET profile' => 'profile/index',
                 'PUT,PATCH profile' => 'profile/update',
+                'GET users' => 'user/index',
                 [
                     'class' => yii\rest\UrlRule::class,
                     'controller' => 'account',
