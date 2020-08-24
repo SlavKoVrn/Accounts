@@ -10,7 +10,7 @@ return [
         'updated_at' => '1392559490',
         'email' => 'sfriesen@jenkins.info',
         'rest_token' => 'uf0OYTWi6BdBG7COVH7g4-opwJwQAN2V',
-        'rest_token_expired_at' => '2020-08-23 16:57:41',
+        'rest_token_expired_at' => date("Y-m-d",time()+24*3600),
     ],
     [
         'username' => 'test.test',
@@ -23,6 +23,6 @@ return [
         'updated_at' => '1548675330',
         'verification_token' => '4ch0qbfhvWwkcuWqjN8SWRq72SOw1KYT_1548675330',
         'rest_token' => 'RsTfu4TRv1sFabH1PRzFbNg2dmwPi4W_',
-        'rest_token_expired_at' => '2020-08-23 16:52:43',
+        'rest_token_expired_at' => date("Y-m-d",time()-24*3600),
     ],
 ];

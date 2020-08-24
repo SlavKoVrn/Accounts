@@ -51,6 +51,14 @@ return [
                 'auth' => 'site/login',
                 'GET profile' => 'profile/index',
                 'PUT,PATCH profile' => 'profile/update',
+                [
+                    'class' => yii\rest\UrlRule::class,
+                    'controller' => 'account',
+                    'pluralize' => false,
+                    'extraPatterns' => [
+                        'POST <from:\d+>/transact/<to:\d+>' => 'transact',
+                    ],
+                ],
             ],
         ],
     ],

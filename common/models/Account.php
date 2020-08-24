@@ -4,6 +4,8 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\Url;
+use yii\web\Linkable;
 
 /**
  * This is the model class for table "account".
@@ -19,7 +21,7 @@ use yii\behaviors\TimestampBehavior;
  * @property int|null $updated_at Дата изменения
  * @property int|null $deleted_at Дата удаления
  */
-class Account extends \yii\db\ActiveRecord
+class Account extends \yii\db\ActiveRecord implements Linkable
 {
     public $user_to_whom;
     public $account_to_whom;
@@ -95,6 +97,16 @@ class Account extends \yii\db\ActiveRecord
         return $this->hasOne(User::class,['id'=>'account_user_id']);
     }
 
+    public function getDebetTransactions()
+    {
+        return $this->hasMany(Transaction::class,['debet_account_id'=>'id']);
+    }
+
+    public function getCreditTransactions()
+    {
+        return $this->hasMany(Transaction::class,['credit_account_id'=>'id']);
+    }
+
     public function doTransaction($account_from_id,$account_to_id,$summ,$description)
     {
         $transaction = new Transaction();
@@ -127,4 +139,37 @@ class Account extends \yii\db\ActiveRecord
     {
         return new AccountQuery(get_called_class());
     }
+
+    public function formName()
+    {
+        return 's';
+    }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'account_number',
+            'balance_date',
+            'balance_summ',
+            'account_description',
+        ];
+    }
+
+    public function extraFields()
+    {
+        return [
+            'owner',
+            'debetTransactions',
+            'creditTransactions',
+        ];
+    }
+
+    public function getLinks()
+    {
+        return [
+            'self' =>   Url::to(['account/'.$this->id], true),
+        ];
+    }
+
 }

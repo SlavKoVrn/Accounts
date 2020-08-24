@@ -90,5 +90,14 @@ class Transaction extends \yii\db\ActiveRecord
         return new TransactionQuery(get_called_class());
     }
 
-    //public function forName
+    public function fields()
+    {
+        return [
+            'id',
+            'transaction_number',
+            'transaction_date',
+            'transaction_summ',
+            'transaction_description',
+        ];
+    }
 }
