@@ -47,6 +47,7 @@ class Account extends \yii\db\ActiveRecord implements Linkable
     }
 
     const SCENARIO_TRANSACT = 'transaction';
+    const SCENARIO_ADD_ACCOUNT = 'add account';
 
     /**
      * {@inheritdoc}
@@ -61,6 +62,7 @@ class Account extends \yii\db\ActiveRecord implements Linkable
             [['account_to_whom','transaction_summ','transaction_description'],'required','on'=>self::SCENARIO_TRANSACT],
             ['transaction_summ', 'compare', 'compareAttribute' => 'balance_summ', 'operator' => '<=','on'=>self::SCENARIO_TRANSACT],
             ['transaction_summ', 'compare', 'compareValue' => 0, 'operator' => '>','on'=>self::SCENARIO_TRANSACT],
+            [['account_number','balance_summ','account_description'],'required','on'=>self::SCENARIO_ADD_ACCOUNT],
         ];
     }
 

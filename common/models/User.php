@@ -77,6 +77,7 @@ class User extends ActiveRecord implements IdentityInterface
         return static::find()
             ->andWhere(['rest_token' => $token])
             ->andWhere(['>', 'rest_token_expired_at', date('Y-m-d H:i:s',time())])
+            ->andWhere(['status' => User::STATUS_ACTIVE])
             ->one();
     }
 

@@ -3,6 +3,7 @@ namespace frontend\controllers;
 
 use common\models\LoginForm;
 use common\models\Account;
+use common\models\User;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -75,9 +76,12 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Account();
+        $account = new Account();
+        $account->scenario = Account::SCENARIO_ADD_ACCOUNT;
+        $user = new LoginForm();
         return $this->render('index',[
-            'model'=>$model,
+            'account'=>$account,
+            'user'=>$user,
         ]);
     }
 
