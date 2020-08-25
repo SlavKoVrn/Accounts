@@ -75,7 +75,7 @@ $(function(){
                 $('#s-account_number').attr('readonly','readonly');
                 $('#s-balance_summ').attr('readonly','readonly');
                 $('#s-account_description').attr('readonly','readonly');
-                alert('счет не добавлен');
+                alert('счет добавлен');
             },
             error: function(data){
                 alert('счет не добавлен');
